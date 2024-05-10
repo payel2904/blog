@@ -10,15 +10,13 @@
     <meta name="author" content="">
 
     <title>SB Admin 2 - Dashboard</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/39ad15420b.js" crossorigin="anonymous"></script>
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -48,7 +46,7 @@
                     <span>Dashboard</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="Post/index.html">
+                <a class="nav-link" href="Post/create.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Post</span></a>
             </li>
@@ -276,9 +274,44 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Post</h1>
+                        <a href="create.blade.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add New</a>
                     </div>
 
+
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">SL</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Desc</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td><a href="create.blade.php"> <i class="fa-solid fa-pen"> </i> </a> <i class="fa-solid fa-trash"></i>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td><a href="create.blade.php"> <i class="fa-solid fa-pen"> </i> </a>  <i class="fa-solid fa-trash"></i>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td><a href="create.blade.php"> <i class="fa-solid fa-pen"> </i> </a> <i class="fa-solid fa-trash"></i>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
 
                 </div>
                 <!-- /.container-fluid -->
@@ -334,7 +367,7 @@
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages--> 
+    <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
@@ -343,7 +376,6 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
-
 </body>
 
 </html>

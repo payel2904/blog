@@ -29,7 +29,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.blade.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -41,7 +41,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.blade.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -51,7 +51,7 @@
                     <span>Post</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.blade.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Category</span></a>
             </li>
@@ -274,45 +274,20 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Post</h1>
-                        <a href="create.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add New</a>
+                        <h1 class="h3 mb-0 text-gray-800">Post Create</h1>
                     </div>
-                     
-                     
-                    <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">SL</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Desc</th>
-                            <th scope="col">Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td><a href="create.html"> <i class="fa-solid fa-pen"> </i> </a> <i class="fa-solid fa-trash"></i>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td><a href="create.html"> <i class="fa-solid fa-pen"> </i> </a>  <i class="fa-solid fa-trash"></i>
-                            </td> 
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td><a href="create.html"> <i class="fa-solid fa-pen"> </i> </a> <i class="fa-solid fa-trash"></i>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    
+
+                    <form>
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1">Title</label>
+                          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="write your title">
+                        </div>
+                        <div class="form-group">
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Description"></textarea>
+                        </div>
+                        <a href="index.blade.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Submit</a>
+                      </form>
+
                 </div>
                 <!-- /.container-fluid -->
 
@@ -367,7 +342,7 @@
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages--> 
+    <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->

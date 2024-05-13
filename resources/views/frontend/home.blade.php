@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edica :: Home</title>
+    <title>Home</title>
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendors/font-awesome/css/all.min.css') }}">
     <link href="{{ asset('frontend/assets/vendors/aos/aos.css') }}" rel="stylesheet">
@@ -66,7 +66,7 @@
                                     </div>
                                </div>
                                <div class="col-md-6 carousel-img-wrapper">
-                                   <img src="assets/images/Slider_1.png" alt="carousel-img" class="img-fluid" width="350px">
+                                   <img src="{{ asset('frontend/assets/images/Slider_1.png') }}" alt="carousel-img" class="img-fluid" width="350px">
                                </div>
                            </div>
                        </div>
@@ -81,7 +81,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 carousel-img-wrapper">
-                                    <img src="assets/images/Slider_1.png" alt="carousel-img" class="img-fluid" width="350px">
+                                    <img src="{{ asset('frontend/assets/images/Slider_1.png') }}" alt="carousel-img" class="img-fluid" width="350px">
                                 </div>
                             </div>
                        </div>
@@ -96,7 +96,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 carousel-img-wrapper">
-                                    <img src="assets/images/Slider_1.png" alt="carousel-img" class="img-fluid" width="350px">
+                                    <img src="{{ asset('frontend/assets/images/Slider_1.png') }}" alt="carousel-img" class="img-fluid" width="350px">
                                 </div>
                             </div>
                        </div>
@@ -121,7 +121,7 @@
                         </ul>
                     </div>
                     <div class="col-md-6" data-aos="fade-up-left">
-                        <img src="assets/images/phone-copy.png" width="468px" alt="about" class="img-fluid">
+                        <img src="{{ asset('frontend/assets/images/phone-copy.png') }}" width="468px" alt="about" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -130,12 +130,12 @@
             <div class="container">
                 <h4 class="edica-landing-section-subtitle-alt">PARTNER WITH US</h4>
                 <div class="partners-wrapper">
-                    <img src="assets/images/Partner_1.png" alt="client logo" data-aos="flip-right" data-aos-delay="250">
-                    <img src="assets/images/Partner_2.png" alt="client logo" data-aos="flip-right" data-aos-delay="500">
-                    <img src="assets/images/Partner_3.png" alt="client logo" data-aos="flip-right" data-aos-delay="750">
-                    <img src="assets/images/Partner_4.png" alt="client logo" data-aos="flip-right" data-aos-delay="1000">
-                    <img src="assets/images/Partner_5.png" alt="client logo" data-aos="flip-right" data-aos-delay="1250">
-                    <img src="assets/images/Partner_6.png" alt="client logo" data-aos="flip-right" data-aos-delay="1500">
+                    <img src="{{ asset('frontend/assets/images/Partner_1.png') }}" alt="client logo" data-aos="flip-right" data-aos-delay="250">
+                    <img src="{{ asset('frontend/assets/images/Partner_2.png') }}" alt="client logo" data-aos="flip-right" data-aos-delay="500">
+                    <img src="{{ asset('frontend/assets/images/Partner_3.png') }}" alt="client logo" data-aos="flip-right" data-aos-delay="750">
+                    <img src="{{ asset('frontend/assets/images/Partner_4.png') }}" alt="client logo" data-aos="flip-right" data-aos-delay="1000">
+                    <img src="{{ asset('frontend/assets/images/Partner_5.png') }}" alt="client logo" data-aos="flip-right" data-aos-delay="1250">
+                    <img src="{{ asset('frontend/assets/images/Partner_6.png') }}" alt="client logo" data-aos="flip-right" data-aos-delay="1500">
                 </div>
             </div>
         </section>
@@ -145,22 +145,22 @@
                 <h2 class="edica-landing-section-title">What features you will <br> Get from App.</h2>
                 <div class="row">
                     <div class="col-md-6 landing-service-card" data-aos="fade-right">
-                        <img src="assets/images/picture.svg" alt="card img" class="img-fluid service-card-img">
+                        <img src="{{ asset('frontend/assets/images/picture.svg') }}" alt="card img" class="img-fluid service-card-img">
                         <h4 class="service-card-title">Live Video</h4>
                         <p class="service-card-description">He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement. For many, however, the.</p>
                     </div>
                     <div class="col-md-6 landing-service-card" data-aos="fade-left">
-                        <img src="assets/images/internet.svg" alt="card img" class="img-fluid service-card-img">
+                        <img src="{{ asset('frontend/assets/images/internet.svg') }}" alt="card img" class="img-fluid service-card-img">
                         <h4 class="service-card-title">Secure and Reliable</h4>
                         <p class="service-card-description">He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement. For many, however, the.</p>
                     </div>
                     <div class="col-md-6 landing-service-card" data-aos="fade-right">
-                        <img src="assets/images/goal.svg" alt="card img" class="img-fluid service-card-img">
+                        <img src="{{ asset('frontend/assets/images/goal.svg') }}" alt="card img" class="img-fluid service-card-img">
                         <h4 class="service-card-title">Fast. Instantly.</h4>
                         <p class="service-card-description">He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement. For many, however, the.</p>
                     </div>
                     <div class="col-md-6 landing-service-card" data-aos="fade-left">
-                        <img src="assets/images/chat-bubble.svg" alt="card img" class="img-fluid service-card-img">
+                        <img src="{{ asset('frontend/assets/images/chat-bubble.svg') }}" alt="card img" class="img-fluid service-card-img">
                         <h4 class="service-card-title">Built-in Messenger</h4>
                         <p class="service-card-description">He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement. For many, however, the.</p>
                     </div>
@@ -171,7 +171,7 @@
             <div class="container">
                 <div id="edicaLandingTestimonialCarousel" class="carousel slide landing-testimonial-carousel" data-ride="carousel">
                     <div class="text-center py-4">
-                        <img src="assets/images/quote.svg" alt="quote">
+                        <img src="{{ asset('frontend/assets/images/quote.svg') }}" alt="quote">
                     </div>
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item">
@@ -202,21 +202,21 @@
                     </div>
                     <ol class="carousel-indicators">
                         <li data-target="#edicaLandingTestimonialCarousel" data-slide-to="0">
-                            <img src="assets/images/oval-copy-3.png" alt="avatar">
+                            <img src="{{ asset('frontend/assets/images/oval-copy-3.png') }}" alt="avatar">
                             <div class="user-details">
                                 <h6>Gabie Sheber</h6>
                                 <p>Developer</p>
                             </div>
                         </li>
                         <li data-target="#edicaLandingTestimonialCarousel" data-slide-to="1">
-                            <img src="assets/images/oval-copy-4.png" alt="avatar">
+                            <img src="{{ asset('frontend/assets/images/oval-copy-4.png') }}" alt="avatar">
                             <div class="user-details">
                                 <h6>Gabie Sheber</h6>
                                 <p>Developer</p>
                             </div>
                         </li>
                         <li data-target="#edicaLandingTestimonialCarousel" data-slide-to="2" class="active">
-                            <img src="assets/images/oval.png" alt="avatar">
+                            <img src="{{ asset('frontend/assets/images/oval.png') }}" alt="avatar">
                             <div class="user-details">
                                 <h6>Gabie Sheber</h6>
                                 <p>Developer</p>
@@ -224,14 +224,14 @@
 
                         </li>
                         <li data-target="#edicaLandingTestimonialCarousel" data-slide-to="3">
-                            <img src="assets/images/oval-copy.png" alt="avatar">
+                            <img src="{{ asset('frontend/assets/images/oval-copy.png') }}" alt="avatar">
                             <div class="user-details">
                                 <h6>Gabie Sheber</h6>
                                 <p>Developer</p>
                             </div>
                         </li>
                         <li data-target="#edicaLandingTestimonialCarousel" data-slide-to="4">
-                            <img src="assets/images/oval-copy-2.png" alt="avatar">
+                            <img src="{{ asset('frontend/assets/images/oval-copy-2.png') }}" alt="avatar">
                             <div class="user-details">
                                 <h6>Gabie Sheber</h6>
                                 <p>Developer</p>
@@ -247,19 +247,19 @@
                 <h2 class="edica-landing-section-title" data-aos="fade-up">Check our app latest blog post <br> for more update.</h2>
                 <div class="row">
                     <div class="col-md-4 landing-blog-post" data-aos="fade-right">
-                        <img src="assets/images/rectangle.png" alt="blog post" class="blog-post-thumbnail">
+                        <img src="{{ asset('frontend/assets/images/rectangle.png') }}" alt="blog post" class="blog-post-thumbnail">
                         <p class="blog-post-category">Blog post</p>
                         <h4 class="blog-post-title">Check our latest blog post for more update.</h4>
                         <a href="#!" class="blog-post-link">Learn more</a>
                     </div>
                     <div class="col-md-4 landing-blog-post" data-aos="fade-up">
-                        <img src="assets/images/rectangle-copy.png" alt="blog post" class="blog-post-thumbnail">
+                        <img src="{{ asset('frontend/assets/images/rectangle-copy.png') }}" alt="blog post" class="blog-post-thumbnail">
                         <p class="blog-post-category">Blog post</p>
                         <h4 class="blog-post-title">Check our latest blog post for more update.</h4>
                         <a href="#!" class="blog-post-link">Learn more</a>
                     </div>
                     <div class="col-md-4 landing-blog-post" data-aos="fade-left">
-                        <img src="assets/images/rectangle-copy-2.png" alt="blog post" class="blog-post-thumbnail">
+                        <img src="{{ asset('frontend/assets/images/rectangle-copy-2.png') }}" alt="blog post" class="blog-post-thumbnail">
                         <p class="blog-post-category">Blog post</p>
                         <h4 class="blog-post-title">Check our latest blog post for more update.</h4>
                         <a href="#!" class="blog-post-link">Learn more</a>
@@ -293,8 +293,8 @@
             <div class="footer-banner" data-aos="fade-up">
                 <h1 class="banner-title">Download it now.</h1>
                 <div class="banner-btns-wrapper">
-                    <button class="btn btn-success"> <img src="assets/images/apple@1x.svg" alt="ios" class="mr-2"> App Store</button>
-                    <button class="btn btn-success"> <img src="assets/images/android@1x.svg" alt="android" class="mr-2"> Google Play</button>
+                    <button class="btn btn-success"> <img src="{{ asset('frontend/assets/images/apple@1x.svg') }}" alt="ios" class="mr-2"> App Store</button>
+                    <button class="btn btn-success"> <img src="{{ asset('frontend/assets/images/android@1x.svg') }}" alt="android" class="mr-2"> Google Play</button>
                 </div>
                 <p class="banner-text">Add some helper text here to explain the finer details of your <br> product or service.</p>
             </div>
@@ -305,7 +305,7 @@
             <div class="row footer-widget-area">
                 <div class="col-md-3">
                     <a href="index.html" class="footer-brand-wrapper">
-                        <img src="assets/images/logo.svg" alt="edica logo">
+                        <img src="{{ asset('frontend/assets/images/logo.svg') }}" alt="edica logo">
                     </a>
                     <p class="contact-details">hello@edica.com</p>
                     <p class="contact-details">+23 3000 000 00</p>

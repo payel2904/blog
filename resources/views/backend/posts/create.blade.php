@@ -11,12 +11,13 @@
 
     <title>SB Admin 2 - Dashboard</title>
     <script src="https://kit.fontawesome.com/39ad15420b.js" crossorigin="anonymous"></script>
+    <link href="{{ asset('backend/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{ asset('backend/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
 </head>
 
@@ -29,7 +30,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.blade.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -41,17 +42,17 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('admin.dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="Post/create.html">
+                <a class="nav-link" href="{{ route('admin.posts.index') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Post</span></a>
+                    <span>Posts</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('admin.dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Category</span></a>
             </li>
@@ -274,44 +275,19 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Post</h1>
-                        <a href="create.blade.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add New</a>
+                        <h1 class="h3 mb-0 text-gray-800">Post Create</h1>
                     </div>
 
-
-                    <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">SL</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Desc</th>
-                            <th scope="col">Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td><a href="create.blade.php"> <i class="fa-solid fa-pen"> </i> </a> <i class="fa-solid fa-trash"></i>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td><a href="create.blade.php"> <i class="fa-solid fa-pen"> </i> </a>  <i class="fa-solid fa-trash"></i>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td><a href="create.blade.php"> <i class="fa-solid fa-pen"> </i> </a> <i class="fa-solid fa-trash"></i>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <form>
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1">Title</label>
+                          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="write your title">
+                        </div>
+                        <div class="form-group">
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Description"></textarea>
+                        </div>
+                        <a href="{{ route('admin.posts.store') }}" class="btn btn-primary ">Submit</a>
+                      </form>
 
                 </div>
                 <!-- /.container-fluid -->
@@ -361,21 +337,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('backend/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/bootstrap/js/bootstrap.bundle.min.js') }}'"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{ asset('backend/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="{{ asset('backend/js/sb-admin-2.min.js') }}"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="{{ asset('backend/vendor/chart.js/Chart.min.js') }}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="{{ asset('backend/js/demo/chart-area-demo.js') }}'"></script>
+    <script src="{{ asset('backend/js/demo/chart-pie-demo.js') }}"></script>
 </body>
 
 </html>

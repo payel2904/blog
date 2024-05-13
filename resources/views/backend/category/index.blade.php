@@ -12,13 +12,13 @@
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('backend/') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{ asset('backend/') }}/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -31,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route("admin.dashboard") }}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -43,17 +43,17 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('admin.dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('admin.posts.index') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Post</span></a>
+                    <span>Posts</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="category/index.html">
+                <a class="nav-link" href="{{ route('admin.categories.index') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Category</span></a>
             </li>
@@ -184,7 +184,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                        <img class="rounded-circle" src="{{ asset('backend') }}/img/undraw_profile_1.svg"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -196,7 +196,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                        <img class="rounded-circle" src="{{ asset('backend') }}/img/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -208,7 +208,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                        <img class="rounded-circle" src="{{ asset('backend') }}/img/undraw_profile_3.svg"
                                             alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
@@ -242,7 +242,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="{{ asset('backend') }}/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -278,7 +278,7 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">category</h1>
-                        <a href="create.blade.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add new</a>
+                        <a href="{{ route('admin.categories.create') }}" class="btn btn-primary">Add new</a>
                         <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
                     </div>
@@ -292,14 +292,16 @@
                         <tbody>
                           <tr>
                             <th colspan="2" scope="row">1</th>
-                            <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit</a>
-                                <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Delete</a>
+                            <td>
+                                <a href="{{ route('admin.categories.create') }}" class="btn btn-info">Edit</a>
+                                <a href="#" class="btn btn-danger">Delete</a>
                             </td>
                           </tr>
                           <tr>
                             <th colspan="2" scope="row">2</th>
-                            <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit</a>
-                                <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Delete</a>
+                            <td>
+                                <a href="{{ route('admin.categories.create') }}" class="btn btn-info">Edit</a>
+                                <a href="#" class="btn btn-danger">Delete</a></a>
                             </td>
                           </tr>
                         </tbody>
@@ -354,21 +356,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('backend/') }}/vendor/jquery/jquery.min.js"></script>
+    <script src="{{ asset('backend/') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{ asset('backend/') }}/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="{{ asset('backend/') }}/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="{{ asset('backend/') }}/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="{{ asset('backend/') }}/js/demo/chart-area-demo.js"></script>
+    <script src="{{ asset('backend/') }}/js/demo/chart-pie-demo.js"></script>
 
 </body>
 

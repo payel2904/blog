@@ -52,7 +52,7 @@
                 <span>Post</span></a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="{{ route('admin.dashboard') }}">
+            <a class="nav-link" href="{{ route('admin.categories.index') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Category</span></a>
         </li>

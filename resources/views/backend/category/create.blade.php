@@ -214,13 +214,14 @@
         <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
     </div>
-    <form>
+    <form action="{{ route('categories.store') }}" method="post">
+        @csrf
         <div class="form-group">
             <label for="exampleInputEmail1">Name</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
 
-        <a href="index.blade.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">submit</a>
+        <input type="submit" value="Save" class="btn btn-primary">
     </form>
 
 

@@ -148,12 +148,12 @@
                 <span>Dashboard</span></a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="{{ route('admin.posts.index') }}">
+            <a class="nav-link" href="{{ route('posts.index') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Posts</span></a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="{{ route('admin.categories.index') }}">
+            <a class="nav-link" href="{{ route('categories.index') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Category</span></a>
         </li>

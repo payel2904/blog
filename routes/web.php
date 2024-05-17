@@ -70,4 +70,16 @@ Route::group(['prefix' => 'admin'], function () {
            return view('backend.category.create');
        })->name('admin.categories.create');
     });
+    Route::group(['prefix'=> 'tag'], function () {
+        Route::get('/', function () {
+            return view('tag/index');
+        })->name('admin.tag.index');
+    });
+
+    Route::group(['prefix'=> 'tag'], function () {
+        Route::get('/', function () {
+            return view('tag/create');
+        })->name('admin.tag.create');
+    });
 });
+

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,14 +52,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/', function(){
        return view('backend.dashboard');
     })->name('admin.dashboard');
-        Route::resource('posts', PostController::class);
 
-    Route::group(['prefix' => 'categories'], function () {
-       Route::get('/', function () {
-           return view('backend.category.index');
-       })->name('admin.categories.index');
-       Route::get('/create', function () {
-           return view('backend.category.create');
-       })->name('admin.categories.create');
-    });
+    Route::resource('posts', PostController::class);
+   Route::resource('categories', CategoryController::class);
 });

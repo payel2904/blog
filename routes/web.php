@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,7 +50,36 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/', function(){
        return view('backend.dashboard');
     })->name('admin.dashboard');
+    Route::group(['prefix' => 'posts'], function () {
+        Route::get('/', function () {
+            return view('backend.posts.index');
+        })->name('admin.posts.index');
+        Route::get('/create', function () {
+            return view('backend.posts.create');
+        })->name('admin.posts.create');
+        Route::get('/submit', function () {
+            return view('backend.posts.index');
+        })->name('admin.posts.store');
+    });
 
-    Route::resource('posts', PostController::class);
-   Route::resource('categories', CategoryController::class);
+    Route::group(['prefix' => 'categories'], function () {
+       Route::get('/', function () {
+           return view('backend.category.index');
+       })->name('admin.categories.index');
+       Route::get('/create', function () {
+           return view('backend.category.create');
+       })->name('admin.categories.create');
+    });
+    Route::group(['prefix'=> 'tag'], function () {
+        Route::get('/', function () {
+            return view('tag/index');
+        })->name('admin.tag.index');
+    });
+
+    Route::group(['prefix'=> 'tag'], function () {
+        Route::get('/', function () {
+            return view('tag/create');
+        })->name('admin.tag.create');
+    });
 });
+

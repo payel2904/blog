@@ -362,7 +362,7 @@ business:
     - sticky-note
     - stream
     - table
-    - tag
+    - tags
     - tags
     - tasks
     - thumbtack
@@ -1477,7 +1477,7 @@ maps:
     - street-view
     - subway
     - suitcase
-    - tag
+    - tags
     - tags
     - taxi
     - thumbtack
@@ -1862,7 +1862,7 @@ objects:
     - tablet
     - tablet-alt
     - tachometer-alt
-    - tag
+    - tags
     - tags
     - taxi
     - thumbtack
@@ -1933,7 +1933,7 @@ payments-shopping:
     - star
     - stripe
     - stripe-s
-    - tag
+    - tags
     - tags
     - thumbs-down
     - thumbs-up
@@ -2452,7 +2452,7 @@ users-people:
     - user-secret
     - user-shield
     - user-slash
-    - user-tag
+    - user-tags
     - user-tie
     - user-times
     - users

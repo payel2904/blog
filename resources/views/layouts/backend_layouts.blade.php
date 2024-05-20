@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,20 +27,18 @@
 
 <!-- Page Wrapper -->
 <div id="wrapper">
-    @include('layouts.include.sidebar_backend')
+    @include('layouts.inc.back_sidebar')
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
         <!-- Main Content -->
         <div id="content">
-            @include('layouts.include.topbar_backend')
+            @include('layouts.inc.topbar_backend')
             <!-- Begin Page Content -->
             <div class="container-fluid">
                 @yield('main_content')
-
             </div>
             <!-- /.container-fluid -->
-
         </div>
         <!-- End of Main Content -->
 

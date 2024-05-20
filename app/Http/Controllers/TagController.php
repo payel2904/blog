@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $allCategoryRecord = Category::paginate(2);
-        return view('backend.category.index', ['categories' =>  $allCategoryRecord]);
+        $allTagRecord = Tag::paginate(2);
+        return view('backend.tags.index', ['tags' => $allTagRecord]);
     }
 
     /**
@@ -21,7 +21,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.category.create');
+        return view('backend.tags.create');
     }
 
     /**
@@ -29,11 +29,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category;
-        $category->name = $request->name;
-        $category->save();
+        $tag = new Tag;
+        $tag->name = $request->name;
+        $tag->save();
 
-        return redirect()->route('categories.index');
+        return redirect()->route('tags.index');
     }
 
     /**

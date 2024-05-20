@@ -5,12 +5,13 @@
         <h1 class="h3 mb-0 text-gray-800">Tags Create</h1>
     </div>
 
-    <form>
+    <form action="{{ route('tags.store') }}" method="post">
+        @csrf
         <div class="form-group">
             <label for="exampleFormControlInput1">Name </label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="write your title">
+            <input type="text" class="form-control" name="name" id="exampleFormControlInput1" placeholder="write your title">
         </div>
-        <a href="{{ route('admin.categories.index') }}" class="btn btn-primary ">Submit</a>
+        <input type="submit" value="Save" class="btn btn-primary">
     </form>
 
 @stop

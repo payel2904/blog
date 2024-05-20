@@ -9650,7 +9650,7 @@ hashtag:
       - instagram
       - pound
       - social media
-      - tag
+      - tags
   styles:
     - solid
   unicode: f292
@@ -17360,7 +17360,7 @@ spray-can:
       - aerosol
       - design
       - graffiti
-      - tag
+      - tags
   styles:
     - solid
   unicode: f5bd
@@ -18331,7 +18331,7 @@ tag:
   changes:
     - '1'
     - 5.0.0
-  label: tag
+  label: tags
   search:
     terms:
       - discount

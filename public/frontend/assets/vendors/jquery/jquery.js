@@ -2926,7 +2926,7 @@ jQuery.fn.extend( {
 var rootjQuery,
 
 	// A simple way to check for HTML strings
-	// Prioritize #id over <tag> to avoid XSS via location.hash (#9521)
+	// Prioritize #id over <tags> to avoid XSS via location.hash (#9521)
 	// Strict HTML recognition (#11290: must start with <)
 	// Shortcut simple #id case for speed
 	rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/,
@@ -4726,7 +4726,7 @@ var wrapMap = {
 	option: [ 1, "<select multiple='multiple'>", "</select>" ],
 
 	// XHTML parsers do not magically insert elements in the
-	// same way that tag soup parsers do. So we cannot shorten
+	// same way that tags soup parsers do. So we cannot shorten
 	// this by omitting <tbody> or other required elements.
 	thead: [ 1, "<table>", "</table>" ],
 	col: [ 2, "<table><colgroup>", "</colgroup></table>" ],
@@ -8784,7 +8784,7 @@ var
 	// Avoid comment-prolog char sequence (#10098); must appease lint and evade compression
 	allTypes = "*/".concat( "*" ),
 
-	// Anchor tag for parsing the document origin
+	// Anchor tags for parsing the document origin
 	originAnchor = document.createElement( "a" );
 	originAnchor.href = location.href;
 
@@ -9890,7 +9890,7 @@ jQuery.ajaxPrefilter( "script", function( s ) {
 	}
 } );
 
-// Bind script tag hack transport
+// Bind script tags hack transport
 jQuery.ajaxTransport( "script", function( s ) {
 
 	// This transport only deals with cross domain or forced-by-attrs requests
@@ -10067,7 +10067,7 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
 	parsed = rsingleTag.exec( data );
 	scripts = !keepScripts && [];
 
-	// Single tag
+	// Single tags
 	if ( parsed ) {
 		return [ context.createElement( parsed[ 1 ] ) ];
 	}

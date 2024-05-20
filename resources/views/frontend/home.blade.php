@@ -1,25 +1,7 @@
 @extends('layouts.frontend_layouts')
 
+
 @section('main_content')
-<section class="edica-landing-section edica-landing-about">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6" data-aos="fade-up-right">
-                <h4 class="edica-landing-section-subtitle-alt">ABOUT US</h4>
-                <h2 class="edica-landing-section-title">1000+ customer using Our application.</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipng elit, sed do eiusmod tempor incididunt ut labore aliqua. Ut enim que minim veniam, quis nostrud exercitation.</p>
-                <ul class="landing-about-list">
-                    <li>Powerful and flexible theme</li>
-                    <li>Simple, transparent pricing</li>
-                    <li>Build tools and full documention</li>
-                </ul>
-            </div>
-            <div class="col-md-6" data-aos="fade-up-left">
-                <img src="{{ asset('frontend/assets/images/phone-copy.png') }}" width="468px" alt="about" class="img-fluid">
-            </div>
-        </div>
-    </div>
-</section>
 <section class="edica-landing-section edica-landing-clients">
     <div class="container">
         <h4 class="edica-landing-section-subtitle-alt">PARTNER WITH US</h4>

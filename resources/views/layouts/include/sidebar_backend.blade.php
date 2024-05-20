@@ -1,3 +1,4 @@
+
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -19,7 +20,7 @@
             <span>Dashboard</span></a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('posts.index') }}">
+        <a class="nav-link" href="{{ route('admin.posts.index') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Posts</span></a>
     </li>
@@ -33,6 +34,8 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Tags</span></a>
     </li>
-
 </ul>
 <!-- End of Sidebar -->
+
+<!-- Sidebar -->
+

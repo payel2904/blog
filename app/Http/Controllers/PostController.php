@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use function Symfony\Component\String\s;
 
 class PostController extends Controller
 {
@@ -12,9 +13,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $allPostRecord = Post::paginate(2);
-        $i = 1;
-        return view('backend.posts.index', ['posts' => $allPostRecord, 'i' => $i]);
+        return view('backend.posts.index');
     }
 
     /**
@@ -35,7 +34,7 @@ class PostController extends Controller
         $post->description = $request->description;
         $post->save();
 
-        return redirect()->route('posts.index');
+       
     }
 
     /**

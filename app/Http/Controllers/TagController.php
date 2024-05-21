@@ -12,8 +12,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $allTagRecord = Tag::paginate(2);
-        return view('backend.tags.index', ['tags' => $allTagRecord]);
+        return view('backend.tags.index');
     }
 
     /**
@@ -32,8 +31,6 @@ class TagController extends Controller
         $tag = new Tag;
         $tag->name = $request->name;
         $tag->save();
-
-        return redirect()->route('tags.index');
     }
 
     /**

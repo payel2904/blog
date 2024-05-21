@@ -22,8 +22,15 @@
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->description }}</td>
                 <td>
-                    <a href="{{ route('posts.create') }}"> <i class="fa-solid fa-pen"> </i> </a>
-                    <i class="fa-solid fa-trash"></i>
+                    <a href="{{ route('posts.show', $post->id) }}" class="btn btn-secondary"> <i
+                            class="fa-solid fa-eye"> </i> </a>
+                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-info"> <i
+                            class="fa-solid fa-pen"> </i> </a>
+                    <form action="{{route('posts.destroy', $post->id)}}" class="d-inline-block" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    </form>
                 </td>
             </tr>
         @endforeach

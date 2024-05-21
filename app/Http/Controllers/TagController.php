@@ -39,25 +39,28 @@ class TagController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Tag $tag)
     {
-        //
+        return view('backend.tags.show', ['tag' => $tag]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Tag $tag)
     {
-        //
+        return view('backend.tags.edit', ['tag' => $tag]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Tag $tag)
     {
-        //
+        $tag->name = $request->name;
+        $tag->save();
+
+        return redirect()->route('tags.index');
     }
 
     /**
@@ -65,6 +68,7 @@ class TagController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Tag::where('id', $id)->delete();
+        return redirect()->route('tags.index');
     }
 }

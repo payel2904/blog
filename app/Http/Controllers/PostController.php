@@ -13,7 +13,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('backend.posts.index');
+        $allPostRecord = Post::paginate(2);
+        $i = 1;
+        return view('backend.posts.index', ['posts' => $allPostRecord, 'i' => $i]);
     }
 
     /**
@@ -34,7 +36,7 @@ class PostController extends Controller
         $post->description = $request->description;
         $post->save();
 
-       
+        return redirect()->route('posts.index');
     }
 
     /**

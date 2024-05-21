@@ -12,7 +12,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('backend.category.index');
+        $allCategoryRecord = Category::paginate(2);
+        return view('backend.category.index', ['categories' => $allCategoryRecord]);
     }
 
     /**
@@ -31,6 +32,8 @@ class CategoryController extends Controller
         $category = new Category;
         $category->name = $request->name;
         $category->save();
+
+        return redirect()->route('categories.index');
     }
 
     /**

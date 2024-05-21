@@ -8,41 +8,26 @@
 
     <table class="table">
         <thead>
-            <tr>
-                <th scope="col">SL</th>
-                <th scope="col">Title</th>
-                <th scope="col">Desc</th>
-                <th scope="col">Action</th>
-            </tr>
+        <tr>
+            <th scope="col">SL</th>
+            <th scope="col">Title</th>
+            <th scope="col">Desc</th>
+            <th scope="col">Action</th>
+        </tr>
         </thead>
         <tbody>
+        @foreach($posts as $post)
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
+                <th scope="row">{{ $i++ }}</th>
+                <td>{{ $post->title }}</td>
+                <td>{{ $post->description }}</td>
                 <td>
                     <a href="{{ route('posts.create') }}"> <i class="fa-solid fa-pen"> </i> </a>
                     <i class="fa-solid fa-trash"></i>
                 </td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>
-                    <a href="{{ route('posts.create') }}"> <i class="fa-solid fa-pen"> </i> </a>
-                    <i class="fa-solid fa-trash"></i>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>
-                    <a href="{{ route('posts.create') }}"> <i class="fa-solid fa-pen"> </i> </a>
-                    <i class="fa-solid fa-trash"></i>
-                </td>
-            </tr>
+        @endforeach
         </tbody>
     </table>
+    {!! $posts->links() !!}
 @stop

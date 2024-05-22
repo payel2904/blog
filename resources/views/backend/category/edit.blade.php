@@ -13,6 +13,9 @@
             <input type="text" class="form-control" name="name" value="{{ $category->name }}"
                    id="exampleFormControlInput1"
                    placeholder="write your title">
+            @if($errors->has('name'))
+                <div class="alert alert-danger">{{ $errors->first('name') }}</div>
+            @endif
         </div>
         <input type="submit" class="btn btn-primary" value="save">
     </form>

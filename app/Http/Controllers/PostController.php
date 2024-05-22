@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostStoreRequest;
+use App\Http\Requests\PostUpdateRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -28,11 +31,18 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PostStoreRequest $request)
     {
         $post = new Post;
         $post->title = $request->title;
         $post->description = $request->description;
+
+        if ($request->hasFile('featured_image')) {
+            // put image in the public storage
+            $filePath = Storage::disk('public')->put('images/posts/featured-images', request()->file('featured_image'));
+            $post->feature_image = $filePath;
+        }
+
         $post->save();
 
         return redirect()->route('posts.index');
@@ -57,7 +67,7 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(PostUpdateRequest $request, Post $post)
     {
         $post->title = $request->title;
         $post->description = $request->description;

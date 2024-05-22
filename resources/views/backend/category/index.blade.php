@@ -21,8 +21,15 @@
                     <tr>
                         <th scope="row">{{ $category->name }}</th>
                         <td>
-                            <a href="{{ route('categories.create') }}" class="btn btn-info">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                            <a href="{{ route('categories.show', $category->id) }}" class="btn btn-secondary">View</a>
+                            <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary">Edit</a>
+                            <form action="{{ route('categories.destroy', $category->id) }}" class="d-inline-block"
+                                  method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+
+                            </form>
                         </td>
                     </tr>
                 </tbody>

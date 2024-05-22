@@ -20,8 +20,13 @@
             <tr>
                 <th scope="row">{{ $tag->name }}</th>
                 <td>
-                    <a href="{{ route('tags.create') }}" class="btn btn-info">Edit</a>
-                    <a href="#" class="btn btn-danger">Delete</a>
+                    <a href="{{ route('tags.show', $tag->id) }}" class="btn btn-secondary">View</a>
+                    <a href="{{ route('tags.edit', $tag->id) }}" class="btn btn-primary">Edit</a>
+                    <form action="{{ route('tags.destroy', $tag->id) }}" class="d-inline-block" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
                 </td>
             </tr>
         </tbody>

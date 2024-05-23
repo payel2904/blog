@@ -12,6 +12,7 @@
             <th scope="col">SL</th>
             <th scope="col">Title</th>
             <th scope="col">Desc</th>
+            <th scope="col">Feature Image</th>
             <th scope="col">Action</th>
         </tr>
         </thead>
@@ -21,6 +22,11 @@
                 <th scope="row">{{ $i++ }}</th>
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->description }}</td>
+                <td>
+                    @if($post->featured_image)
+                        <img src="{{ asset('storage/'.$post->featured_image) }}" alt="title" width="50px" height="50px">
+                    @endif
+                </td>
                 <td>
                     <a href="{{ route('posts.show', $post->id) }}" class="btn btn-secondary"> <i
                             class="fa-solid fa-eye"> </i> </a>

@@ -12,10 +12,16 @@
             <label for="exampleFormControlInput1">Title</label>
             <input type="text" class="form-control" name="title" value="{{ $post->title }}"
                    id="exampleFormControlInput1" placeholder="write your title">
+            @if($errors->has('title'))
+                <div class="alert alert-danger">{{ $errors->first('title') }}</div>
+            @endif
         </div>
         <div class="form-group">
             <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"
                       placeholder="Description">{{ $post->description }}</textarea>
+            @if($errors->has('description'))
+                <div class="alert alert-danger">{{ $errors->first('description') }}</div>
+            @endif
         </div>
         <input type="submit" value="Save" class="btn btn-primary">
     </form>

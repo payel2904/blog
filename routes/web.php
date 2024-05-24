@@ -51,7 +51,7 @@ Route::get('/contact', function () {
 //    });
 //});
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', function () {
         return view('backend.dashboard');
     })->name('admin.dashboard');

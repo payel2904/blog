@@ -20,8 +20,8 @@
             <tr>
                 <th scope="row">{{ $tag->name }}</th>
                 <td>
-                    <a href="{{ route('tags.show', $tag->id ) }}" class="btn btn-secondary">View</a>
-                    <a href="{{ route('tags.edit', $tag->id ) }}" class="btn btn-info">Edit</a>
+                    <a href="{{ route('tags.show', $tag->id) }}" class="btn btn-secondary">View</a>
+                    <a href="{{ route('tags.edit', $tag->id) }}" class="btn btn-primary">Edit</a>
                     <form action="{{ route('tags.destroy', $tag->id) }}" class="d-inline-block" method="post">
                         @csrf
                         @method('DELETE')
@@ -29,8 +29,10 @@
                     </form>
                 </td>
             </tr>
-        @endforeach
         </tbody>
+        @endforeach
     </table>
+
+    {!! $tags->links() !!}
     {!! $tags->links() !!}
 @stop

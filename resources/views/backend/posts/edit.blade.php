@@ -2,7 +2,7 @@
 @section('main_content')
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Post Create</h1>
+        <h1 class="h3 mb-0 text-gray-800">Post Edit</h1>
     </div>
 
     <form action="{{ route('posts.update', $post->id) }}" method="post">
@@ -26,4 +26,3 @@
         <input type="submit" value="Save" class="btn btn-primary">
     </form>
 @stop
-

@@ -15,8 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $allUserRecord = User::paginate(10);
-        return view('backend.users.index', ['users' => $allUserRecord]);
+        return view('backend.users.index');
     }
 
     /**
@@ -47,32 +46,25 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show(string $id)
     {
-        return view('backend.users.show', ['user' => $user]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit(string $id)
     {
-        return view('backend.users.edit', ['user' => $user]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserUpdateRequest $request, User $user)
+    public function update(UserUpdateRequest $request, string $id)
     {
-        $validated = $request->validated();
-        $user->name = $validated['name'];
-        $user->email = $validated['email'];
-        $user->phone = $validated['phone'];
-        $user->password = Hash::make($validated['password']);
-        $user->save();
-
-        return redirect()->route('users.index');
+        //
     }
 
     /**
@@ -80,7 +72,6 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        User::where('id', $id)->delete();
-        return redirect()->route('users.index');
+        //
     }
 }

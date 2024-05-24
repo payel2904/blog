@@ -7,6 +7,7 @@ use App\Http\Requests\PostUpdateRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use function Symfony\Component\String\s;
 
 class PostController extends Controller
 {
@@ -36,13 +37,12 @@ class PostController extends Controller
         $post = new Post;
         $post->title = $request->title;
         $post->description = $request->description;
-
         if ($request->hasFile('featured_image')) {
             // put image in the public storage
             $filePath = Storage::disk('public')->put('images/posts/featured-images', request()->file('featured_image'));
-            $post->feature_image = $filePath;
+            $post->featured_image = $filePath;
         }
-
+        
         $post->save();
 
         return redirect()->route('posts.index');
@@ -71,6 +71,11 @@ class PostController extends Controller
     {
         $post->title = $request->title;
         $post->description = $request->description;
+        if ($request->hasFile('featured_image')) {
+            // put image in the public storage
+            $filePath = Storage::disk('public')->put('images/posts/featured-images', request()->file('featured_image'));
+            $post->featured_image = $filePath;
+        }
         $post->save();
 
         return redirect()->route('posts.index');

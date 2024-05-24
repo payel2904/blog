@@ -18,13 +18,15 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="{{ route('frontend.home') }}">Payel</a>
-            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#edicaMainNav" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#edicaMainNav"
+                    aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="edicaMainNav">
                 <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('frontend.home') }}">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('frontend.home') }}">Home <span
+                                class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('frontend.about') }}">About Us</a>
@@ -38,12 +40,15 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><span class="flag-icon flag-icon-squared rounded-circle flag-icon-gb"></span> Eng</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Download</a>
-                    </li>
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                            @else
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                        </li>
+                    @endguest
                 </ul>
             </div>
         </nav>
@@ -58,15 +63,19 @@
                     <div class="carousel-item active">
                         <div class="row">
                             <div class="col-md-6 carousel-content-wrapper">
-                                <h1 >Elevate your hotel's efficiency with our software</h1>
-                                <p>He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement.</p>
+                                <h1>Elevate your hotel's efficiency with our software</h1>
+                                <p>He has led a remarkable campaign, defying the traditional mainstream parties courtesy
+                                    of his En Marche! movement.</p>
                                 <div class="carousel-content-btns">
-                                    <a href="#!" class="btn btn-success"> <i class="fab fa-apple mr-2"></i> App Store</a>
-                                    <a href="#!" class="btn btn-secondary"> <i class="fab fa-android mr-2"></i>  Google Play</a>
+                                    <a href="#!" class="btn btn-success"> <i class="fab fa-apple mr-2"></i> App
+                                        Store</a>
+                                    <a href="#!" class="btn btn-secondary"> <i class="fab fa-android mr-2"></i> Google
+                                        Play</a>
                                 </div>
                             </div>
                             <div class="col-md-6 carousel-img-wrapper">
-                                <img src="{{ asset('frontend/assets/images/Slider_1.png') }}" alt="carousel-img" class="img-fluid" width="350px">
+                                <img src="{{ asset('frontend/assets/images/Slider_1.png') }}" alt="carousel-img"
+                                     class="img-fluid" width="350px">
                             </div>
                         </div>
                     </div>
@@ -74,14 +83,18 @@
                         <div class="row">
                             <div class="col-md-6 carousel-content-wrapper">
                                 <h1>Get Started Power social proof for your brands.</h1>
-                                <p>He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement.</p>
+                                <p>He has led a remarkable campaign, defying the traditional mainstream parties courtesy
+                                    of his En Marche! movement.</p>
                                 <div class="carousel-content-btns">
-                                    <a href="#!" class="btn btn-success"> <i class="fab fa-apple mr-2"></i> App Store</a>
-                                    <a href="#!" class="btn btn-secondary"> <i class="fab fa-android mr-2"></i> Google Play</a>
+                                    <a href="#!" class="btn btn-success"> <i class="fab fa-apple mr-2"></i> App
+                                        Store</a>
+                                    <a href="#!" class="btn btn-secondary"> <i class="fab fa-android mr-2"></i> Google
+                                        Play</a>
                                 </div>
                             </div>
                             <div class="col-md-6 carousel-img-wrapper">
-                                <img src="{{ asset('frontend/assets/images/Slider_1.png') }}" alt="carousel-img" class="img-fluid" width="350px">
+                                <img src="{{ asset('frontend/assets/images/Slider_1.png') }}" alt="carousel-img"
+                                     class="img-fluid" width="350px">
                             </div>
                         </div>
                     </div>
@@ -89,14 +102,18 @@
                         <div class="row">
                             <div class="col-md-6 carousel-content-wrapper">
                                 <h1>Get Started Power social proof for your brands.</h1>
-                                <p>He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement.</p>
+                                <p>He has led a remarkable campaign, defying the traditional mainstream parties courtesy
+                                    of his En Marche! movement.</p>
                                 <div class="carousel-content-btns">
-                                    <a href="#!" class="btn btn-success"> <i class="fab fa-apple mr-2"></i> App Store</a>
-                                    <a href="#!" class="btn btn-secondary"> <i class="fab fa-android mr-2"></i> Google Play</a>
+                                    <a href="#!" class="btn btn-success"> <i class="fab fa-apple mr-2"></i> App
+                                        Store</a>
+                                    <a href="#!" class="btn btn-secondary"> <i class="fab fa-android mr-2"></i> Google
+                                        Play</a>
                                 </div>
                             </div>
                             <div class="col-md-6 carousel-img-wrapper">
-                                <img src="{{ asset('frontend/assets/images/Slider_1.png') }}" alt="carousel-img" class="img-fluid" width="350px">
+                                <img src="{{ asset('frontend/assets/images/Slider_1.png') }}" alt="carousel-img"
+                                     class="img-fluid" width="350px">
                             </div>
                         </div>
                     </div>
@@ -107,17 +124,22 @@
 </header>
 
 <main>
-   @yield('main_content')
+    @yield('main_content')
 </main>
 <section class="edica-footer-banner-section">
     <div class="container">
         <div class="footer-banner" data-aos="fade-up">
             <h1 class="banner-title">Download it now.</h1>
             <div class="banner-btns-wrapper">
-                <button class="btn btn-success"> <img src="{{ asset('frontend/assets/images/apple@1x.svg') }}" alt="ios" class="mr-2"> App Store</button>
-                <button class="btn btn-success"> <img src="{{ asset('frontend/assets/images/android@1x.svg') }}" alt="android" class="mr-2"> Google Play</button>
+                <button class="btn btn-success"><img src="{{ asset('frontend/assets/images/apple@1x.svg') }}" alt="ios"
+                                                     class="mr-2"> App Store
+                </button>
+                <button class="btn btn-success"><img src="{{ asset('frontend/assets/images/android@1x.svg') }}"
+                                                     alt="android" class="mr-2"> Google Play
+                </button>
             </div>
-            <p class="banner-text">Add some helper text here to explain the finer details of your <br> product or service.</p>
+            <p class="banner-text">Add some helper text here to explain the finer details of your <br> product or
+                service.</p>
         </div>
     </div>
 </section>
@@ -159,9 +181,11 @@
             </div>
             <div class="col-md-3">
                 <div class="dropdown footer-country-dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="footerCountryDropdown" data-toggle="dropdown" aria-haspopup="true"
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="footerCountryDropdown"
+                            data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                        <span class="flag-icon flag-icon-gb flag-icon-squared"></span> United Kingdom <i class="fas fa-chevron-down ml-2"></i>
+                        <span class="flag-icon flag-icon-gb flag-icon-squared"></span> United Kingdom <i
+                            class="fas fa-chevron-down ml-2"></i>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="footerCountryDropdown">
                         <button class="dropdown-item" href="#">
@@ -180,7 +204,9 @@
                 <a href="#!">Terms</a>
                 <a href="#!">Site Map</a>
             </nav>
-            <p class="mb-0">© Edica. 2020 <a href="https://www.bootstrapdash.com" target="_blank" rel="noopener noreferrer" class="text-reset">bootstrapdash</a> . All rights reserved.</p>
+            <p class="mb-0">© Edica. 2020 <a href="https://www.bootstrapdash.com" target="_blank"
+                                             rel="noopener noreferrer" class="text-reset">bootstrapdash</a> . All rights
+                reserved.</p>
         </div>
     </div>
 </footer>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryUpdateRequest;
 use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -26,7 +28,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('backend.posts.create');
+        $categories = Category::get();
+        return view('backend.posts.create', ['categories' => $categories]);
     }
 
     /**
@@ -42,7 +45,7 @@ class PostController extends Controller
             $filePath = Storage::disk('public')->put('images/posts/featured-images', request()->file('featured_image'));
             $post->featured_image = $filePath;
         }
-        
+        $post->category_id = $request->category_id;
         $post->save();
 
         return redirect()->route('posts.index');
@@ -61,7 +64,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('backend.posts.edit', ['post' => $post]);
+        $categories = Category::get();
+        return view('backend.posts.edit', ['post' => $post, 'categories' => $categories]);
     }
 
     /**
@@ -76,6 +80,8 @@ class PostController extends Controller
             $filePath = Storage::disk('public')->put('images/posts/featured-images', request()->file('featured_image'));
             $post->featured_image = $filePath;
         }
+        $post->category_id = $request->category_id;
+
         $post->save();
 
         return redirect()->route('posts.index');

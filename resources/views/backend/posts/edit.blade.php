@@ -17,11 +17,32 @@
             @endif
         </div>
         <div class="form-group">
+            <label for="category_id">Category</label>
+            <select required class="form-control" id="category_id" name="category_id">
+                <option value="">-- Please Select --</option>
+                @foreach($categories as $category)
+                    @if($category->id === $post->id)
+                        <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                    @else
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endif
+                @endforeach
+            </select>
+            @if($errors->has('category_id'))
+                <div class="alert alert-danger">{{ $errors->first('category_id') }}</div>
+            @endif
+        </div>
+        <div class="form-group">
             <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"
                       placeholder="Description">{{ $post->description }}</textarea>
             @if($errors->has('description'))
                 <div class="alert alert-danger">{{ $errors->first('description') }}</div>
             @endif
+        </div>
+
+        <div class="form-group">
+            <label for="featured_image">Feature Image</label>
+            <input type="file" class="form-control" name="featured_image">
         </div>
         <input type="submit" value="Save" class="btn btn-primary">
     </form>

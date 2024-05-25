@@ -10,7 +10,7 @@
             <label for="exampleFormControlInput1">Name </label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="write your title">
         </div>
-        <a href="{{ route('admin.categories.index') }}" class="btn btn-primary ">Submit</a>
+        <a href="{{ route('posts.create') }}" class="btn btn-primary ">Submit</a>
     </form>
 
 @stop

@@ -14,7 +14,7 @@
                         <div class="form-group">
                           <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Description"></textarea>
                         </div>
-                        <a href="{{ route('admin.posts.store') }}" class="btn btn-primary ">Submit</a>
+                        <a href="#" class="btn btn-primary ">Submit</a>
                       </form>
 
 @stop

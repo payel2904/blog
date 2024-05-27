@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -11,7 +12,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('backend.posts.index');
+        $allPostData = Post::paginate(10);
+        return view('backend.posts.index', ['allPosts' => $allPostData]);
     }
 
     /**
@@ -27,7 +29,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post= new Post;
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->save();
+
+        return redirect()->route('posts.index');
+
     }
 
     /**
@@ -43,7 +51,8 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $post = Post::where('id', $id)->first();
+        return view('backend.posts.edit', ['post' => $post]);
     }
 
     /**
@@ -51,7 +60,13 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $post = Post::where('id', $id)->first();
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->save();
+
+        return redirect()->route('posts.index');
+
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -11,7 +12,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        return view('backend.tags.index');
+        $allTagData= Tag::paginate(10);
+        return view('backend.tags.index', ['allTags'=> $allTagData]);
     }
 
     /**
@@ -27,7 +29,12 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tag= new Tag;
+        $tag->name = $request->name;
+        $tag->save();
+
+        return redirect()->route('tags.index');
+
     }
 
     /**
@@ -35,7 +42,7 @@ class TagController extends Controller
      */
     public function show(string $id)
     {
-        //
+
     }
 
     /**
@@ -43,7 +50,8 @@ class TagController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $tag = Tag::where('id', $id)->first();
+        return view('backend.tags.edit', ['singleTag' =>$tag]);
     }
 
     /**
@@ -51,7 +59,11 @@ class TagController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $tag = Tag::where('id', $id)->first();
+        $tag->name = $request->name;
+        $tag->save();
+
+        return redirect()->route('tags.index');
     }
 
     /**

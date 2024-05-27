@@ -16,33 +16,18 @@
         </tr>
         </thead>
         <tbody>
+        @foreach($allPosts as $post)
         <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
+            <th scope="row">{{ $post->id }}</th>
+            <td>{{ $post->title }}</td>
+            <td>{{ $post->description }}</td>
             <td>
-                <a href="{{ route('posts.create') }}"> <i class="fa-solid fa-pen"> </i> </a>
-                <i class="fa-solid fa-trash"></i>
+                <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-info"> Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
             </td>
         </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>
-                <a href="{{ route('posts.create') }}"> <i class="fa-solid fa-pen"> </i> </a>
-                <i class="fa-solid fa-trash"></i>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>
-                <a href="{{ route('posts.create') }}"> <i class="fa-solid fa-pen"> </i> </a>
-                <i class="fa-solid fa-trash"></i>
-            </td>
-        </tr>
+            @endforeach
         </tbody>
     </table>
+    {!! $allPosts->links() !!}
 @stop

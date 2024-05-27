@@ -4,13 +4,19 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Tags Create</h1>
     </div>
-
-    <form>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Name </label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="write your title">
+    <div class="card">
+        <div class="card-body">
+            <form action="{{ route('tags.store') }}" method="post">
+                @csrf
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Name </label>
+                    <input type="text" class="form-control" name="name" id="exampleFormControlInput1" placeholder="write your title">
+                </div>
+                <button type="submit" class="btn btn-primary ">Save</button>
+            </form>
         </div>
-        <a href="{{ route('posts.create') }}" class="btn btn-primary ">Submit</a>
-    </form>
+    </div>
+
+
 
 @stop

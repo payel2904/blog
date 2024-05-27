@@ -50,8 +50,6 @@ class TagController extends Controller
      */
     public function edit(string $id)
     {
-        $tag = Tag::where('id', $id)->first();
-        return view('backend.tags.edit', ['singleTag' =>$tag]);
     }
 
     /**
@@ -59,11 +57,6 @@ class TagController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $tag = Tag::where('id', $id)->first();
-        $tag->name = $request->name;
-        $tag->save();
-
-        return redirect()->route('tags.index');
     }
 
     /**

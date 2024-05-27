@@ -10,21 +10,27 @@
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">name</th>
+        <th colspan="2" scope="col">name</th>
         <th scope="col">action</th>
     </tr>
     </thead>
     <tbody>
-    @foreach($allCategories as $category)
+
     <tr>
-        <td>{{ $category->name }}</td>
+        <th colspan="2" scope="row">1</th>
         <td>
-            <a href="{{ route('categories.edit', $category->id) }}" >Edit</a>
-            <a href="#" >Delete</a>
+            <a href="{{ route('categories.create') }}" class="btn btn-info">Edit</a>
+            <a href="#" class="btn btn-danger">Delete</a>
         </td>
     </tr>
-        @endforeach
+    <tr>
+        <th colspan="2" scope="row">2</th>
+        <td>
+            <a href="{{ route('categories.create') }}" class="btn btn-info">Edit</a>
+            <a href="#" class="btn btn-danger">Delete</a></a>
+        </td>
+    </tr>
+
     </tbody>
 </table>
-    {!! $allCategories->links() !!}
 @stop

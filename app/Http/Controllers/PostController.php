@@ -51,8 +51,6 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        $post = Post::where('id', $id)->first();
-        return view('backend.posts.edit', ['post' => $post]);
     }
 
     /**
@@ -60,13 +58,6 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $post = Post::where('id', $id)->first();
-        $post->title = $request->title;
-        $post->description = $request->description;
-        $post->save();
-
-        return redirect()->route('posts.index');
-
     }
 
     /**

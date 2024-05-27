@@ -51,8 +51,6 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $category = Category::where('id', $id)->first();
-        return view('backend.category.edit', ['singleCategory' =>$category]);
     }
 
     /**
@@ -60,11 +58,6 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $category = Category::where('id', $id)->first();
-        $category->name = $request->name;
-        $category->save();
-
-        return redirect()->route('categories.index');
     }
 
     /**

@@ -5,7 +5,6 @@
         <h1 class="h3 mb-0 text-gray-800">Post</h1>
         <a href="{{ route('posts.create') }}" class="btn btn-primary">Add New</a>
     </div>
-
     <table class="table">
         <thead>
         <tr>
@@ -16,18 +15,35 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($allPosts as $post)
+
         <tr>
-            <th scope="row">{{ $post->id }}</th>
-            <td>{{ $post->title }}</td>
-            <td>{{ $post->description }}</td>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
             <td>
-                <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-info"> Edit</a>
-                <a href="#" class="btn btn-danger">Delete</a>
+                <a href="{{ route('posts.create') }}"> <i class="fa-solid fa-pen"> </i> </a>
+                <i class="fa-solid fa-trash"></i>
             </td>
         </tr>
-            @endforeach
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>
+                <a href="{{ route('posts.create') }}"> <i class="fa-solid fa-pen"> </i> </a>
+                <i class="fa-solid fa-trash"></i>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>
+                <a href="{{ route('posts.create') }}"> <i class="fa-solid fa-pen"> </i> </a>
+                <i class="fa-solid fa-trash"></i>
+            </td>
+        </tr>
+
         </tbody>
     </table>
-    {!! $allPosts->links() !!}
 @stop

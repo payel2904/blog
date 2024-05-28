@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('featured_image')->nullable()->after('description');
+            $table->string('feature_image')->nullable()->after('description');
         });
     }
 
@@ -21,7 +21,7 @@ return new class extends Migration {
     public function down(): void
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('featured_image');
+            $table->dropColumn('feature_image');
         });
     }
 };

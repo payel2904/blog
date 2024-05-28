@@ -18,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $allPostRecord = Post::paginate(2);
+        $allPostRecord = Post::with('category')->paginate(2);
         $i = 1;
         return view('backend.posts.index', ['posts' => $allPostRecord, 'i' => $i]);
     }
@@ -76,7 +76,7 @@ class PostController extends Controller
     public function update(PostUpdateRequest $request, Post $post)
     {
         $validated = $request->validated();
-        
+
         if (File::exists(public_path('storage/' . $post->feature_image))) {
             Storage::delete(storage_path('app/public/' . $post->feature_image));
         }

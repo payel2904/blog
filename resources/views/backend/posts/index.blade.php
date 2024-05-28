@@ -12,6 +12,7 @@
             <th scope="col">SL</th>
             <th scope="col">Title</th>
             <th scope="col">Desc</th>
+            <th scope="col">Category</th>
             <th scope="col">Feature Image</th>
             <th scope="col">Action</th>
         </tr>
@@ -22,6 +23,7 @@
                 <th scope="row">{{ $i++ }}</th>
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->description }}</td>
+                <td>{{ $post->category->name }}</td>
                 <td>
                     @if($post->feature_image)
                         <img src="{{ asset('storage/'.$post->feature_image) }}" alt="title" width="50px" height="50px">

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use function Symfony\Component\String\s;
 
@@ -26,7 +28,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('backend.posts.create');
+        $categories = Category::get();
+        return view('backend.posts.create', ['categories' => $categories]);
     }
 
     /**
@@ -34,15 +37,17 @@ class PostController extends Controller
      */
     public function store(PostStoreRequest $request)
     {
+        $validated = $request->validated();
         $post = new Post;
-        $post->title = $request->title;
-        $post->description = $request->description;
-        if ($request->hasFile('featured_image')) {
+        $post->title = $validated['title'];
+        $post->description = $validated['description'];
+        if ($request->hasFile('feature_image')) {
             // put image in the public storage
-            $filePath = Storage::disk('public')->put('images/posts/featured-images', request()->file('featured_image'));
-            $post->featured_image = $filePath;
+            $filePath = Storage::disk('public')->put('images/posts/featured-images', request()->file('feature_image'));
+            $post->feature_image = $filePath;
         }
-        
+        $post->category_id = $validated['category_id'];
+
         $post->save();
 
         return redirect()->route('posts.index');
@@ -61,7 +66,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('backend.posts.edit', ['post' => $post]);
+        $categories = Category::get();
+        return view('backend.posts.edit', ['post' => $post, 'categories' => $categories]);
     }
 
     /**
@@ -69,13 +75,22 @@ class PostController extends Controller
      */
     public function update(PostUpdateRequest $request, Post $post)
     {
-        $post->title = $request->title;
-        $post->description = $request->description;
-        if ($request->hasFile('featured_image')) {
-            // put image in the public storage
-            $filePath = Storage::disk('public')->put('images/posts/featured-images', request()->file('featured_image'));
-            $post->featured_image = $filePath;
+        $validated = $request->validated();
+        
+        if (File::exists(public_path('storage/' . $post->feature_image))) {
+            Storage::delete(storage_path('app/public/' . $post->feature_image));
         }
+
+        $post->title = $validated['title'];
+        $post->description = $validated['description'];
+        if ($request->hasFile('feature_image')) {
+            // put image in the public storage
+            $filePath = Storage::disk('public')->put('images/posts/featured-images', request()->file('feature_image'));
+            $post->feature_image = $filePath;
+        }
+
+        $post->category_id = $validated['category_id'];
+
         $post->save();
 
         return redirect()->route('posts.index');

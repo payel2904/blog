@@ -23,7 +23,8 @@ class PostStoreRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'category_id' => 'required|exists:categories,id'
         ];
     }
 }

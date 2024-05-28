@@ -23,8 +23,8 @@
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->description }}</td>
                 <td>
-                    @if($post->featured_image)
-                        <img src="{{ asset('storage/'.$post->featured_image) }}" alt="title" width="50px" height="50px">
+                    @if($post->feature_image)
+                        <img src="{{ asset('storage/'.$post->feature_image) }}" alt="title" width="50px" height="50px">
                     @endif
                 </td>
                 <td>

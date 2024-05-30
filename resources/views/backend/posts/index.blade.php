@@ -23,6 +23,7 @@
             <td>{{ $post->title }}</td>
             <td>{{ $post->description }}</td>
             <td>{{ $post->category->name }}</td>
+            <td>{{ $post->tag->name }}</td>
             <td>
                 <a href="{{ route('posts.show', $post->id) }} " class="btn btn-info"> Show </a>
                 <a href="{{ route('posts.edit', $post->id) }} " class="btn btn-info"> Edit</a>

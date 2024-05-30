@@ -41,6 +41,22 @@
                         <div class="alert alert-danger">{{ $errors->first('category_id') }}</div>
                     @endif
                 </div>
+                <div class="form-group">
+                    <label for="tag_id">Tag</label>
+                    <select name="tag_id" id="tag_id" class="form-control">
+                        <option value="">-- Please Select --</option>
+                        @foreach($tags as $tag)
+                            @if($tag->id === $singlePost->tag_id)
+                                <option value="{{ $tag->id }}" selected>{{ $tag->name }}</option>
+                            @else
+                                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                    @if($errors->has('tag_id'))
+                        <div class="alert alert-danger">{{ $errors->first('tag_id') }}</div>
+                    @endif
+                </div>
                 <button type="submit" class="btn btn-primary ">Save</button>
             </form>
         </div>

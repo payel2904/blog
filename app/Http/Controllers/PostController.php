@@ -6,6 +6,7 @@ use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,7 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $allPostData = Post::with('category')->paginate(10);
+        $allPostData = Post::with(['category', 'tag'])->paginate(10);
         return view('backend.posts.index', ['allPosts' => $allPostData]);
     }
 
@@ -25,7 +26,8 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::get();
-        return view('backend.posts.create', ['categories' => $categories]);
+        $tags = Tag::get();
+        return view('backend.posts.create', ['categories' => $categories , 'tags' => $tags]);
     }
 
     /**
@@ -39,6 +41,7 @@ class PostController extends Controller
         $post->title = $validated['title'];
         $post->description = $validated['description'];
         $post->category_id = $validated['category_id'];
+        $post->tag_id = $validated['tag_id'];
         $post->save();
 
         return redirect()->route('posts.index');
@@ -61,7 +64,8 @@ class PostController extends Controller
     {
         $post = Post::where('id', $id)->first();
         $categories = Category::get();
-        return view('backend.posts.edit', ['singlePost'=>$post, 'categories' => $categories]);
+        $tags = Tag::get();
+        return view('backend.posts.edit', ['singlePost'=>$post, 'categories' => $categories, 'tags' => $tags]);
     }
 
     /**
@@ -74,6 +78,7 @@ class PostController extends Controller
         $post->title = $validated['title'];
         $post->description = $validated['description'];
         $post->category_id = $validated['category_id'];
+        $post->tag_id = $validated['tag_id'];
         $post->save();
 
         return redirect()->route('posts.index');

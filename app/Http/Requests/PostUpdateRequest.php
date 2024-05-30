@@ -24,14 +24,16 @@ class PostUpdateRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
-            'category_id' => 'required|exists:categories,id'
+            'category_id' => 'required|exists:categories,id',
+            'tag_id' => 'required|exists:tags,id',
         ];
     }
 
     public function attributes()
     {
         return [
-            'category_id' => 'Category'
+            'category_id' => 'Category',
+            'tag_id' => 'Tag'
         ];
     }
 }

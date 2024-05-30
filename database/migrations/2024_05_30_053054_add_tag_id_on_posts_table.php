@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('feature_image')->nullable()->after('description');
+            $table->foreignId('tag_id')->after('id')->constrained('tags');
         });
     }
 
@@ -21,7 +21,7 @@ return new class extends Migration {
     public function down(): void
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('feature_image');
+            $table->dropForeign('tag_id');
         });
     }
 };

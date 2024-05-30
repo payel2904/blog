@@ -13,10 +13,33 @@
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" class="form-control" name="title" value="{{ $singlePost->title }}" id="title" placeholder="write your title">
+                    @if($errors->has('title'))
+                        <div class="alert alert-danger">{{ $errors->first('title') }}</div>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
                     <textarea class="form-control" name="description" id="description" rows="3" placeholder="Description">{{$singlePost->description}}</textarea>
+                    @if($errors->has('description'))
+                        <div class="alert alert-danger">{{ $errors->first('description') }}</div>
+                    @endif
+                </div>
+
+                <div class="form-group">
+                    <label for="category_id">Category</label>
+                    <select name="category_id" id="category_id" class="form-control">
+                        <option value="">-- Please Select --</option>
+                        @foreach($categories as $category)
+                            @if($category->id === $singlePost->category_id)
+                                <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                            @else
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                    @if($errors->has('category_id'))
+                        <div class="alert alert-danger">{{ $errors->first('category_id') }}</div>
+                    @endif
                 </div>
                 <button type="submit" class="btn btn-primary ">Save</button>
             </form>

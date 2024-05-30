@@ -11,7 +11,7 @@
             <th scope="col">SL</th>
             <th scope="col">Title</th>
             <th scope="col">Desc</th>
-            <th scope="col">Feature Image</th>
+            <th scope="col">Category</th>
             <th scope="col">Action</th>
         </tr>
         </thead>
@@ -22,11 +22,7 @@
             <th scope="row">{{ $post->id }}</th>
             <td>{{ $post->title }}</td>
             <td>{{ $post->description }}</td>
-            <td>
-                @if ($post->feature_image)
-                    <img src="{{ asset('storage/'.$post->feature_image) }}" alt="{{ $post->title }}" height="50px" width="50px">
-                @endif
-            </td>
+            <td>{{ $post->category->name }}</td>
             <td>
                 <a href="{{ route('posts.show', $post->id) }} " class="btn btn-info"> Show </a>
                 <a href="{{ route('posts.edit', $post->id) }} " class="btn btn-info"> Edit</a>

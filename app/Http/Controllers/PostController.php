@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostStoreRequest;
+use App\Http\Requests\PostUpdateRequest;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -12,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $allPostData = Post::paginate(10);
+        $allPostData = Post::with('category')->paginate(10);
         return view('backend.posts.index', ['allPosts' => $allPostData]);
     }
 
@@ -21,17 +24,21 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('backend.posts.create');
+        $categories = Category::get();
+        return view('backend.posts.create', ['categories' => $categories]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PostStoreRequest $request)
     {
+        $validated = $request->validated();
+
         $post= new Post;
-        $post->title = $request->title;
-        $post->description = $request->description;
+        $post->title = $validated['title'];
+        $post->description = $validated['description'];
+        $post->category_id = $validated['category_id'];
         $post->save();
 
         return redirect()->route('posts.index');
@@ -53,17 +60,20 @@ class PostController extends Controller
     public function edit(string $id)
     {
         $post = Post::where('id', $id)->first();
-        return view('backend.posts.edit', ['singlePost'=>$post]);
+        $categories = Category::get();
+        return view('backend.posts.edit', ['singlePost'=>$post, 'categories' => $categories]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PostUpdateRequest $request, string $id)
     {
+        $validated = $request->validated();
         $post = Post::where('id', $id)->first();
-        $post->title = $request->title;
-        $post->description = $request->description;
+        $post->title = $validated['title'];
+        $post->description = $validated['description'];
+        $post->category_id = $validated['category_id'];
         $post->save();
 
         return redirect()->route('posts.index');

@@ -11,39 +11,34 @@
             <th scope="col">SL</th>
             <th scope="col">Title</th>
             <th scope="col">Desc</th>
+            <th scope="col">Feature Image</th>
             <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
+        @foreach($allPosts as $post)
 
         <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
+            <th scope="row">{{ $post->id }}</th>
+            <td>{{ $post->title }}</td>
+            <td>{{ $post->description }}</td>
             <td>
-                <a href="{{ route('posts.create') }}"> <i class="fa-solid fa-pen"> </i> </a>
-                <i class="fa-solid fa-trash"></i>
+                @if ($post->feature_image)
+                    <img src="{{ asset('storage/'.$post->feature_image) }}" alt="{{ $post->title }}" height="50px" width="50px">
+                @endif
+            </td>
+            <td>
+                <a href="{{ route('posts.show', $post->id) }} " class="btn btn-info"> Show </a>
+                <a href="{{ route('posts.edit', $post->id) }} " class="btn btn-info"> Edit</a>
+                <form action="{{ route('posts.destroy',$post->id) }}" method="post">
+                    @csrf
+                    @method('Delete')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
             </td>
         </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>
-                <a href="{{ route('posts.create') }}"> <i class="fa-solid fa-pen"> </i> </a>
-                <i class="fa-solid fa-trash"></i>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>
-                <a href="{{ route('posts.create') }}"> <i class="fa-solid fa-pen"> </i> </a>
-                <i class="fa-solid fa-trash"></i>
-            </td>
-        </tr>
-
+        @endforeach
         </tbody>
     </table>
+    {!! $allPosts->links() !!}
 @stop

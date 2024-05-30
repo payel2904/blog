@@ -43,6 +43,8 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
+        $category = Category::where('id', $id)->first();
+        return view('backend.category.show', ['singleCategory'=>$category]);
 
     }
 
@@ -51,6 +53,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
+        $category = Category::where('id', $id)->first();
+        return view('backend.category.edit', ['singleCategory' =>$category]);
     }
 
     /**
@@ -58,6 +62,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $category = Category::where('id', $id)->first();
+        $category->name = $request->name;
+        $category->save();
+
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -65,6 +74,7 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Category::where('id', $id)->delete();
+        return redirect()->route('categories.index');
     }
 }

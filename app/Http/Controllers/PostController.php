@@ -43,7 +43,8 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $post = Post::where('id', $id)->first();
+        return view('backend.posts.show', ['singlePost'=>$post]);
     }
 
     /**
@@ -51,6 +52,8 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
+        $post = Post::where('id', $id)->first();
+        return view('backend.posts.edit', ['singlePost'=>$post]);
     }
 
     /**
@@ -58,6 +61,12 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $post = Post::where('id', $id)->first();
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->save();
+
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -65,6 +74,7 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Post::where('id', $id)->delete();
+        return redirect()->route('posts.index');
     }
 }

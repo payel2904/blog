@@ -1199,7 +1199,7 @@ interfaces:
     - beer
     - bell
     - bell-slash
-    - blog
+    - blogs
     - bug
     - bullhorn
     - bullseye
@@ -2535,7 +2535,7 @@ winter:
 writing:
   icons:
     - archive
-    - blog
+    - blogs
     - book
     - bookmark
     - edit

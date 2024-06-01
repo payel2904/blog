@@ -24,7 +24,8 @@ class PostStoreRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
-            'category_id' => 'required|exists:categories,id'
+            'tag_id' => 'required|exists:tags,id',
+            'category_id' => 'required|exists:categories,id',
         ];
     }
 }

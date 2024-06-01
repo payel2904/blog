@@ -17,24 +17,37 @@
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea class="form-control" name="description" id="description" rows="3"
+            <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"
                       placeholder="Description"></textarea>
             @if($errors->has('description'))
                 <div class="alert alert-danger">{{ $errors->first('description') }}</div>
             @endif
         </div>
         <div class="form-group">
+            <label for="tag_id">Tag</label>
+            <select class="form-control" name="tag_id" id="tag_id">
+                <option value="">--Please Select --</option>
+                @foreach($tags as $tag)
+                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                @endforeach
+            </select>
+            @if($errors->has('tag_id'))
+                <div class="alert alert-danger">{{ $errors->first('tag_id') }}</div>
+            @endif
+        </div>
+        <div class="form-group">
             <label for="category_id">Category</label>
-            <select name="category_id" id="category_id" class="form-control" required>
-                <option value="">-- Please Select--</option>
+            <select class="form-control" name="category_id" id="category_id">
+                <option value="">--Please Select --</option>
                 @foreach($categories as $category)
-                    <option value="{{$category->id}}">{{ $category->name }}</option>
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>
             @if($errors->has('category_id'))
                 <div class="alert alert-danger">{{ $errors->first('category_id') }}</div>
             @endif
         </div>
+
         <div class="form-group">
             <label for="feature_image">Feature Image</label>
             <input type="file" class="form-control" name="feature_image">

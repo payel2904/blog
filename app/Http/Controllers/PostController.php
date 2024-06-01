@@ -6,6 +6,7 @@ use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -18,7 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $allPostRecord = Post::with('category')->paginate(2);
+        $allPostRecord = Post::with(['category', 'tag'])->paginate(2);
         $i = 1;
         return view('backend.posts.index', ['posts' => $allPostRecord, 'i' => $i]);
     }
@@ -28,8 +29,9 @@ class PostController extends Controller
      */
     public function create()
     {
+        $tags = Tag::get();
         $categories = Category::get();
-        return view('backend.posts.create', ['categories' => $categories]);
+        return view('backend.posts.create', ['categories' => $categories, 'tags' => $tags]);
     }
 
     /**
@@ -46,7 +48,9 @@ class PostController extends Controller
             $filePath = Storage::disk('public')->put('images/posts/featured-images', request()->file('feature_image'));
             $post->feature_image = $filePath;
         }
+
         $post->category_id = $validated['category_id'];
+        $post->tag_id = $validated['tag_id'];
 
         $post->save();
 
@@ -66,8 +70,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $tag = Tag::get();
         $categories = Category::get();
-        return view('backend.posts.edit', ['post' => $post, 'categories' => $categories]);
+        return view('backend.posts.edit', ['post' => $post, 'categories' => $categories, 'tags' => $tag]);
     }
 
     /**
@@ -88,7 +93,7 @@ class PostController extends Controller
             $filePath = Storage::disk('public')->put('images/posts/featured-images', request()->file('feature_image'));
             $post->feature_image = $filePath;
         }
-
+        $post->tag_id = $validated['tag_id'];
         $post->category_id = $validated['category_id'];
 
         $post->save();

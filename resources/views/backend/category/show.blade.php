@@ -6,21 +6,26 @@
     </div>
 
     <div class="card">
-        <div class="card--body">
+        <div class="card-body">
             <table class="table">
                 <thead>
                 <tr>
+                    <th scope="col">SL</th>
                     <th scope="col">Title</th>
                     <th scope="col">Desc</th>
+                    <th scope="col">Tag</th>
                     <th scope="col">Category</th>
                     <th scope="col">Feature Image</th>
                 </tr>
                 </thead>
                 <tbody>
+                @php $i=1; @endphp
                 @foreach($category->posts as $post)
                     <tr>
+                        <th scope="row">{{ $i++ }}</th>
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->description }}</td>
+                        <td>{{ $post->tag->name }}</td>
                         <td>{{ $post->category->name }}</td>
                         <td>
                             @if($post->feature_image)

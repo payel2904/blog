@@ -41,8 +41,9 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show(int $categoryId)
     {
+        $category = Category::with('posts')->where('id', $categoryId)->first();
         return view('backend.category.show', ['category' => $category]);
     }
 

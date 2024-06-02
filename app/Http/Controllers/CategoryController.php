@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryStoreRequest;
+use App\Http\Requests\CategoryUpdateRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
@@ -29,10 +31,11 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CategoryStoreRequest $request)
     {
+        $validated = $request->validated();
         $category= new Category;
-        $category->name = $request->name;
+        $category->name = $validated['name'];
         $category->save();
 
         return redirect()->route('categories.index');
@@ -43,6 +46,8 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
+       $category = Category::where('id', $id)->first();
+        return view('backend.category.show',['singleCategory'=>$category]);
 
     }
 
@@ -51,13 +56,21 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
+        $category = Category::where('id', $id)->first();
+        return view('backend.category.edit',['singleCategory'=> $category]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(CategoryUpdateRequest $request, string $id)
     {
+        $validated = $request->validated();
+        $category = Category::where('id', $id)->first();
+        $category->name = $validated['name'];
+        $category->save();
+
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -65,6 +78,7 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Category::where('id', $id)->delete();
+        return redirect()->route('categories.index');
     }
 }
